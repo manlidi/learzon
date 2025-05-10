@@ -1,0 +1,86 @@
+<div class="fixed-top">
+  <div class="top-bar">
+    <div class="top-bar-left nav nav-tabs">
+      <a class="nav-link" [ngClass]="{ active: activeBrand === 'lr' }" (click)="setActiveBrand('lr')"
+        href="javascript:void(0);">
+        <img src="assets/logo.png" alt="Learning Resources" class="brand-logo" />
+      </a>
+      <a class="nav-link" [ngClass]="{ active: activeBrand === 'ei' }" (click)="setActiveBrand('ei')"
+        href="javascript:void(0);">
+        <img src="assets/logo1.png" alt="Educational Insights" class="brand-logo" />
+      </a>
+      <a class="nav-link" [ngClass]="{ active: activeBrand === 'bk' }" (click)="setActiveBrand('bk')"
+        href="javascript:void(0);">
+        <img src="assets/logo2.png" alt="Brightkins" class="brand-logo" />
+      </a>
+    </div>
+
+
+    <div class="top-bar-center">
+      <div class="ticker">
+        <div class="ticker-item" *ngIf="currentMessage">
+          {{ currentMessage }}
+        </div>
+      </div>
+    </div>
+
+    <div class="top-bar-right">
+      <a href="#">Accessibility</a>
+      <a href="#"><img src="assets/uk-flag-circle.webp" class="brand-logo" height="20" /> Shop UK Site</a>
+      <a href="#">Help</a>
+      <a [routerLink]="['/login']">Sign In</a>
+    </div>
+  </div>
+
+  <nav class="navbar ">
+    <div class="nav-left">
+      <button class="hamburger" (click)="toggleMenu()">☰</button>
+      <img src="assets/logo.png" alt="Logo" class="logo" />
+      <img src="assets/cart.png" alt="Cart" class="cart-icon mobile-only" />
+    </div>
+
+    <div class="nav-center desktop-only">
+      <a [routerLink]="['/shop']" >Shop</a>
+      <a href="#">Age</a>
+      <a href="#">Interests</a>
+      <a href="#">Teacher Resources</a>
+      <a href="#">About Us</a>
+      <a href="#">Blog</a>
+      <a href="#">Bonus Activities</a>
+    </div>
+
+    <div class="nav-right">
+      <input type="text" class="search" placeholder="Search..." />
+      <img src="assets/cart.png" alt="Cart" class="cart-icon desktop-only" />
+    </div>
+  </nav>
+</div>
+
+<div class="drawer" [class.open]="menuOpen">
+  <div class="drawer-header">
+    <button class="close-btn" (click)="toggleMenu()">&times;</button>
+    <img src="assets/logo.png" class="logo" alt="Logo" />
+  </div>
+  <div class="drawer-tabs">
+    <button [class.active]="activeTab === 'menu'" (click)="activeTab = 'menu'">Menu</button>
+    <button [class.active]="activeTab === 'account'" (click)="activeTab = 'account'">Account</button>
+  </div>
+  <div class="drawer-content">
+    <ng-container *ngIf="activeTab === 'menu'">
+      <a href="#">Shop</a>
+      <a href="#">Age</a>
+      <a href="#">Interests</a>
+      <a href="#">Teacher Resources</a>
+      <a href="#">About Us</a>
+      <a href="#">Blog</a>
+      <a href="#">Bonus Activities</a>
+    </ng-container>
+    <ng-container *ngIf="activeTab === 'account'">
+      <a [routerLink]="['/login']">Sign In</a>
+      <a href="#">Help</a>
+      <a href="#">Accessibility</a>
+    </ng-container>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

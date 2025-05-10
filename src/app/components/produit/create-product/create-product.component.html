@@ -1,0 +1,41 @@
+<div class="container py-4">
+  <h2>Créer un Produit</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="reference" class="form-label">Référence</label>
+      <input type="text" class="form-control" id="reference" [(ngModel)]="produit.reference" name="reference" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="titre" class="form-label">Titre</label>
+      <input type="text" class="form-control" id="titre" [(ngModel)]="produit.titre" name="titre" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="age" class="form-label">Age</label>
+      <input type="text" class="form-control" id="age" [(ngModel)]="produit.age" name="age" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea class="form-control" id="description" [(ngModel)]="produit.description" name="description" required></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label for="image" class="form-label">Image</label>
+      <input type="file" class="form-control" (change)="onImageChange($event)">
+    </div>
+
+    <div class="mb-3">
+      <label for="prix" class="form-label">Prix</label>
+      <input type="number" class="form-control" id="prix" [(ngModel)]="produit.prix" name="prix" required>
+    </div>
+
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="availability" [(ngModel)]="produit.availability" name="availability">
+      <label class="form-check-label" for="availability">Disponible</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Ajouter le produit</button>
+  </form>
+</div>

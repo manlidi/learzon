@@ -1,0 +1,17 @@
+.page-wrapper {
+  background: radial-gradient(farthest-side, #0067af 99%, transparent) calc(50% + 100px) 6px / 60px 60px no-repeat, radial-gradient(farthest-side, #0067af 99%, transparent) calc(100% - 64px) 100px / 237px 237px no-repeat, radial-gradient(farthest-side, #0067af 99%, transparent) calc(100% + 39px) -85px / 170px 170px no-repeat, #154287;
+  margin-top: 20px;
+}
+
+.shop-section {
+  background-color: #0D47A1;
+  /* deep blue */
+  color: white;
+  position: relative;
+  overflow: hidden;
+  padding: 3rem 1rem;
+}
+
+h1.shop-title {
+  font-weight: 800;
+}

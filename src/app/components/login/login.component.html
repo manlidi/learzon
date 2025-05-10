@@ -1,0 +1,43 @@
+<div class="container-fluid my-5 pt-5">
+  <section class="page-wrapper text-white my-5">
+    <div class="container my-5" style="padding: 50px;">
+      <h1 class="shop-title mb-3">Customer Login</h1>
+    </div>
+  </section>
+
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <div class="row">
+        <!-- Registered Customers -->
+        <div class="col-md-6 bg-white p-4 shadow-sm">
+          <h4 class="fw-bold">Registered Customers</h4>
+          <p class="text-muted">If you have an account, sign in with your email address.</p>
+          <form (ngSubmit)="login()">
+            <div class="mb-3">
+              <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+              <input [(ngModel)]="email" name="email" type="email" class="form-control" id="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+              <input [(ngModel)]="password" name="password" type="password" class="form-control" id="password" required>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+              <button type="submit" class="btn btn-primary px-4">Sign In</button>
+              <button type="button" class="btn btn-danger" (click)="loginWithGoogle()">
+                <i class="bi bi-google"></i> Sign in with Google
+              </button>
+              <a href="#" class="text-decoration-none">Forgot Your Password?</a>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-6 bg-white p-4 shadow-sm">
+          <h4 class="fw-bold">New Customers</h4>
+          <p class="text-muted">
+            Creating an account has many benefits: check out faster, keep more than one address, track orders and more.
+          </p>
+          <a href="#" class="btn btn-purple text-white fw-bold" style="background-color: #6f2c91;">Create an Account</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

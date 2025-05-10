@@ -1,0 +1,40 @@
+.page-wrapper {
+  background: radial-gradient(farthest-side, #0067af 99%, transparent) calc(50% + 100px) 6px / 60px 60px no-repeat, radial-gradient(farthest-side, #0067af 99%, transparent) calc(100% - 64px) 100px / 237px 237px no-repeat, radial-gradient(farthest-side, #0067af 99%, transparent) calc(100% + 39px) -85px / 170px 170px no-repeat, #154287;
+  margin-top: 20px;
+}
+
+.shop-section {
+  background-color: #0D47A1;
+  /* deep blue */
+  color: white;
+  position: relative;
+  overflow: hidden;
+  padding: 3rem 1rem;
+}
+
+h2.shop-title {
+  font-weight: 800;
+}
+
+.bg-purple {
+  background-color: #7d4bb1;
+  color: white;
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: contain;
+}
+
+.card-title {
+  font-size: 0.9rem;
+}
+
+.bg-purple {
+  background-color: #6f42c1;
+  color: white;
+}
+
+li a {
+  color: black;
+}

@@ -1,0 +1,9 @@
+<div class="container mt-5">
+  <h2>Bienvenue dans votre tableau de bord</h2>
+
+  <div *ngIf="user">
+    <p><strong>Email :</strong> {{ user.email }}</p>
+    <p><strong>Nom affiché :</strong> {{ user.displayName || 'Non disponible' }}</p>
+    <button class="btn btn-danger" (click)="logout()">Se déconnecter</button>
+  </div>
+</div>

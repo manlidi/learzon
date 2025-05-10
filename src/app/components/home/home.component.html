@@ -1,0 +1,415 @@
+<div class="container text-center my-5 pt-5">
+  <h3 class="texte-entete">
+    Get 30% off your first order and free activities when you join our email list!
+  </h3>
+  <div class="row justify-content-center">
+    <div class="col-md-5 col-sm-8 col-10">
+      <div class="row g-3">
+        <div class="col-12 col-md-8">
+          <input type="email" class="form-control" placeholder="Email">
+        </div>
+        <div class="col-12 col-md-4">
+          <button class="btn btn-secondary" style="width: 100px;">Join</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-4">
+  <div class="row">
+    <div class="col-12">
+      <img src="assets/Header_PC_smol.webp" alt="Spring into Learning" class="img-fluid w-100 d-none d-md-block">
+
+      <img src="assets/Header_Mobile_smol.webp" alt="Spring into Learning (mobile)"
+        class="img-fluid w-100 d-block d-md-none">
+    </div>
+  </div>
+</div>
+
+
+<div class="container text-center my-5">
+  <h1 class="fw-bold" style="color: #004080; font-size:90px;">Shop by Age</h1>
+  <div class="row justify-content-center mt-4">
+    <div class="col-6 col-md-auto">
+      <img src="assets/Artboard_208_3x.webp" alt="18 months" class="img-fluid image-fleur" style="max-width: 220px;">
+    </div>
+    <div class="col-6 col-md-auto">
+      <img src="assets/Artboard_208_copy_3x.webp" alt="2 years" class="img-fluid image-fleur" style="max-width: 220px;">
+    </div>
+    <div class="col-6 col-md-auto">
+      <img src="assets/Artboard_208_copy_2_3x.webp" alt="3-4 years" class="img-fluid image-fleur"
+        style="max-width: 220px;">
+    </div>
+    <div class="col-6 col-md-auto">
+      <img src="assets/Artboard_208_copy_3_3x.webp" alt="5-7 years" class="img-fluid image-fleur"
+        style="max-width: 220px;">
+    </div>
+    <div class="col-6 col-md-auto">
+      <img src="assets/Artboard_208_copy_4_3x.webp" alt="8+ years" class="img-fluid image-fleur"
+        style="max-width: 220px;">
+    </div>
+  </div>
+</div>
+
+
+<div class="container my-5">
+  <div class="row">
+    <div class="col-sm-6">
+      <img src="assets/9d1ffc20cd197ea21bedeaf3f0b72d77_peeksvilleopa.jpg" class="img-fluid">
+    </div>
+    <div class="col-sm-6">
+      <img src="assets/8cc6cc4fd3721c99b8f09f6bc70dae8d_cooperopa.jpg" class="img-fluid">
+    </div>
+  </div>
+</div>
+
+<div class="container my-4">
+  <div class="row">
+    <div class="col-12">
+      <img src="assets/New_PC_smol.webp" class="img-fluid w-100 d-none d-md-block">
+
+      <img src="assets/New_Mobile.webp" class="img-fluid w-100 d-block d-md-none">
+    </div>
+  </div>
+</div>
+
+<div class="carousel-wrapper">
+  <button class="nav-button left" (click)="prev()" [disabled]="currentIndex === 0">&lt;</button>
+
+  <div class="carousel-track-wrapper">
+    <div class="carousel-track">
+      <div class="product-card" *ngFor="let product of visibleProducts">
+        <div class="image-wrapper">
+          <img [src]="product.imageUrl" alt="{{ product.name }}" />
+          <span *ngIf="product.isNew" class="badge">New</span>
+        </div>
+        <div class="product-info">
+          <h3>{{ product.name }}</h3>
+          <button (click)="goToItem()" class="add-to-cart">Add to Cart</button>
+          <div class="bottom-info">
+            <span class="age">{{ product.ageRange }}</span>
+            <span class="price">${{ product.price }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="nav-button right" (click)="next()" [disabled]="currentIndex + itemsPerPage >= products.length">&gt;</button>
+</div>
+
+
+
+<div class="container py-5">
+  <div class="row g-4">
+
+    <div class="col-6 col-md-3">
+      <div class="card p-2">
+        <img src="assets/Award_Winning_2_.webp" class="img-fluid h-100 w-100" style="object-fit: cover; border-radius: 20px;" alt="Award Winning">
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <div class="card p-2">
+        <img src="assets/Play_Food.webp" class="img-fluid h-100 w-100" style="object-fit: cover; border-radius: 20px;" alt="Play Food">
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <div class="card p-2">
+        <img src="assets/Fine_Motor_2_.webp" class="img-fluid h-100 w-100" style="object-fit: cover; border-radius: 20px;" alt="Fine Motor">
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <div class="card p-2">
+        <img src="assets/STEM_2_.webp" class="img-fluid h-100 w-100" style="object-fit: cover; border-radius: 20px;" alt="STEM">
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <div class="card p-2">
+        <img src="assets/SEL_2_.webp" class="img-fluid h-100 w-100" style="object-fit: cover; border-radius: 20px;" alt="Social Emotional Learning">
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <div class="card p-2">
+        <img src="assets/Animals_1_.webp" class="img-fluid h-100 w-100" style="object-fit: cover; border-radius: 20px;" alt="Animals">
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <div class="card p-2">
+        <img src="assets/Games_3_.webp" class="img-fluid h-100 w-100" style="object-fit: cover; border-radius: 20px;" alt="Games & Activity Sets">
+      </div>
+    </div>
+
+    <div class="col-6 col-md-3">
+      <div class="card p-2">
+        <img src="assets/Coding_1_.webp" class="img-fluid h-100 w-100" style="object-fit: cover; border-radius: 20px;" alt="Coding">
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="container text-center my-5">
+  <h1 class="blog-title">Our Blog!</h1>
+  <p class="blog-description mt-4">
+    Home of Learning Fun for Every Age and Stage! Building someone amazing? Discover even more
+    ways to give your kids the building blocks they need to succeed with our free tips and tools
+    written by experts, teachers, and parents just like you!
+  </p>
+</div>
+
+
+<div class="container">
+  <div class="row text-center">
+
+    <div class="col-12 col-md-6 col-lg-3 mb-4">
+      <div class="activity-card">
+        <img src="assets/smarts-and-crafts.webp" alt="Math" class="activity-img">
+        <div class="activity-title">Math</div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3 mb-4">
+      <div class="activity-card">
+        <img src="assets/printables.webp" alt="Reading" class="activity-img">
+        <div class="activity-title">Reading</div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3 mb-4">
+      <div class="activity-card">
+        <img src="assets/learning-at-home.webp" alt="STEM" class="activity-img">
+        <div class="activity-title">STEM</div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3 mb-4">
+      <div class="activity-card">
+        <img src="assets/teachers-lounge.webp" alt="Motor Skills" class="activity-img">
+        <div class="activity-title">Motor Skills</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="accordion d-md-none" id="footerAccordion">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button collapsed bg-primary text-light fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#aboutUs" aria-expanded="false" aria-controls="aboutUs">
+        About Us
+      </button>
+    </h2>
+    <div id="aboutUs" class="accordion-collapse collapse" data-bs-parent="#footerAccordion">
+      <div class="accordion-body footer-links">
+        <a href="#">Who We Are</a><br>
+        <a href="#">Join Our Team</a><br>
+        <a href="#">Our Blog</a><br>
+        <a href="#">Our Partners</a><br>
+        <a href="#">Press Room</a><br>
+        <a href="#">Sustainability</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed bg-primary text-light fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#shop" aria-expanded="false" aria-controls="shop">
+        Shop
+      </button>
+    </h2>
+    <div id="shop" class="accordion-collapse collapse" data-bs-parent="#footerAccordion">
+      <div class="accordion-body footer-links">
+        <a href="#">New Products</a><br>
+        <a href="#">Coding</a><br>
+        <a href="#">Critical Thinking</a><br>
+        <a href="#">Imaginative & Role Play</a><br>
+        <a href="#">STEM Toys</a><br>
+        <a href="#">Teacher Resources</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header bg-primary" id="headingThree">
+      <button class="accordion-button collapsed bg-primary text-light fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#resources" aria-expanded="false" aria-controls="resources">
+        Resources
+      </button>
+    </h2>
+    <div id="resources" class="accordion-collapse collapse" data-bs-parent="#footerAccordion">
+      <div class="accordion-body footer-links">
+        <a href="#">Accessibility Statement</a><br>
+        <a href="#">Privacy Policy</a><br>
+        <a href="#">Terms of Use</a><br>
+        <a href="#">School Orders</a><br>
+        <a href="#">2025 Catalog</a><br>
+        <a href="#">Brightkins® Site</a><br>
+        <a href="#">Dealer Wholesale Site</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingFour">
+      <button class="accordion-button collapsed bg-primary text-light fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#help" aria-expanded="false" aria-controls="help">
+        Need Help?
+      </button>
+    </h2>
+    <div id="help" class="accordion-collapse collapse " data-bs-parent="#footerAccordion">
+      <div class="accordion-body footer-links">
+        <a href="#">Contact Us</a><br>
+        <a href="#">FAQ</a><br>
+        <a href="#">Customer Service</a><br>
+        <a href="#">Replacement Parts</a><br>
+        <a href="#">Request a Quote</a><br>
+        <a href="#">Find a Store</a><br>
+        <a href="tel:800-222-3909" style="color: #007bff;">800-222-3909</a><br>
+        <small>Mon-Fri 8:30AM - 4:30PM CST</small>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container py-5">
+
+  <!-- Réseaux sociaux -->
+  <div class="d-flex justify-content-center mb-5">
+    <div class="social-icon" style="background-color: #A4D65E;">
+      <i class="bi bi-instagram"></i>
+    </div>
+    <div class="social-icon" style="background-color: #F7941E;">
+      <i class="bi bi-facebook"></i>
+    </div>
+    <div class="social-icon" style="background-color: #123C7C;">
+      <i class="bi bi-pinterest"></i>
+    </div>
+    <div class="social-icon" style="background-color: #00AEEF;">
+      <i class="bi bi-youtube"></i>
+    </div>
+    <div class="social-icon" style="background-color: #662D91;">
+      <i class="bi bi-tiktok"></i>
+    </div>
+  </div>
+
+  <!-- Liens -->
+  <div class="row text-center mx-4 text-md-start d-none d-md-flex">
+<div class="col-2">
+
+</div>
+    <div class="col-6 col-md-2 mb-4  footer-section">
+      <h6>About Us</h6>
+      <div class="footer-links">
+        <a href="#">Who We Are</a>
+        <a href="#">Join Our Team</a>
+        <a href="#">Our Blog</a>
+        <a href="#">Our Partners</a>
+        <a href="#">Press Room</a>
+        <a href="#">Sustainability</a>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-2 mb-4 footer-section">
+      <h6>Shop</h6>
+      <div class="footer-links">
+        <a href="#">New Products</a>
+        <a href="#">Coding</a>
+        <a href="#">Critical Thinking</a>
+        <a href="#">Imaginative & Role Play</a>
+        <a href="#">STEM Toys</a>
+        <a href="#">Teacher Resources</a>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-2 mb-4 footer-section">
+      <h6>Resources</h6>
+      <div class="footer-links">
+        <a href="#">Accessibility Statement</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">School Orders</a>
+        <a href="#">2025 Catalog</a>
+        <a href="#">Brightkins® Site</a>
+        <a href="#">Dealer Wholesale Site</a>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-2 mb-4 footer-section">
+      <h6>Need Help?</h6>
+      <div class="footer-links">
+        <a href="#">Contact Us</a>
+        <a href="#">FAQ</a>
+        <a href="#">Customer Service</a>
+        <a href="#">Replacement Parts</a>
+        <a href="#">Request a Quote</a>
+        <a href="#">Find a Store</a>
+        <a href="tel:800-222-3909" style="color: #007bff;">800-222-3909</a>
+        <small class="d-block mt-2">Mon-Fri 8:30AM - 4:30PM CST</small>
+      </div>
+    </div>
+    <div class="col-2 ">
+
+    </div>
+  </div>
+
+</div>
+
+<section class="newsletter-section">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- TEXTE À GAUCHE -->
+      <div class="col-md-6">
+        <h1>Come Learn with Us!</h1>
+        <h5 class="mt-3">Sign-up for our newsletter & exciting offers!</h5>
+        <p class="mt-3 small">
+          By signing up for our newsletter, you are opting in to our mailing list. You can opt out at any time.<br>
+          Read our <a href="#" class="text-white text-decoration-underline">privacy policy</a>.
+        </p>
+      </div>
+
+      <!-- FORMULAIRE À DROITE -->
+      <div class="col-md-6 d-flex justify-content-end">
+        <form class="d-flex flex-row gap-2">
+          <input type="email" class="form-control newsletter-input" placeholder="Email">
+          <button class="btn btn-light fw-bold newsletter-button" type="submit">Join</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Pied de page -->
+<footer class="footer">
+  <div class="container">
+    <div class="row justify-content-between">
+      <div class="col-md-8">
+        <p>
+          Learning Resources | 800-222-3909 | 380 N. Fairway Dr., Vernon Hills, IL 60061 <br>
+          <a href="#">Do Not Sell My Personal Information</a> |
+          <a href="#">Terms & Conditions</a>
+        </p>
+      </div>
+      <div class="col-md-4 text-md-end">
+        <p class="mb-0">&copy; 2025 Learning Resources Inc. All Rights Reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Bouton "Back to Top" -->
+<div class="back-to-top">
+  <a href="#top">
+    <img src="https://www.learningresources.com/on/demandware.static/-/Library-Sites-LearningResourcesSharedLibrary/default/dwbde96a8d/images/BackToTop.svg" alt="Back to Top">
+    <div>Back to<br>Top</div>
+  </a>
+</div>
+
+
+
+
+

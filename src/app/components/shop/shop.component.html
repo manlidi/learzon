@@ -1,0 +1,138 @@
+<div class="container-fluid my-5 pt-5">
+  <section class="page-wrapper text-white my-5">
+    <div class="container my-5" style="padding: 50px;">
+      <h2 class="shop-title mb-3">Shop</h2>
+      <p>
+        Whether you’re wanting to <strong>shop STEM toys</strong> like our Botley coding robot or one of our many top
+        rated items when looking for educational toys for kids, look no further than Learning Resources toys, games, and
+        printables.
+      </p>
+      <p>
+        Unsure of what type of toy or game you are seeking for the classroom or at home? <strong>Learning
+          Resources</strong> has a range of educational toy and game types like critical thinking, discovery &
+        exploration, fine motor, games & activity sets, imaginative & role playing toys, sensory bin, social emotional
+        learning, and STEM coding toys & activity kits.
+      </p>
+      <p>
+        If you’re wondering how best to incorporate <strong>educational toys for kids</strong> into your classroom or at
+        home, take a glance at our blog for insights on our downloadables and printables, arts and craft session ideas,
+        and, after you’ve <strong>shopped STEM toys</strong>, to understand how to spark a love for STEM learning in
+        your children.
+      </p>
+    </div>
+  </section>
+  <div class="container mt-4">
+    <div class="row">
+      <!-- Sidebar Filters -->
+      <div class="col-md-3">
+        <h5>Shop</h5>
+        <ul class="list-unstyled">
+          <li><a href="#">Featured</a></li>
+          <li><a href="#">Product Type</a></li>
+          <li><a href="#">Subject</a></li>
+          <li><a href="#">Holiday</a></li>
+          <li><a href="#">Age</a></li>
+        </ul>
+
+        <h5 class="mt-4">Filter by</h5>
+        <div class="accordion" id="filtersAccordion">
+          <div class="accordion-item" *ngFor="let filter of filters">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                [attr.data-bs-target]="'#collapse' + filter.id">
+                {{ filter.name }}
+              </button>
+            </h2>
+            <div [id]="'collapse' + filter.id" class="accordion-collapse collapse">
+              <div class="accordion-body">
+                <div *ngFor="let option of filter.options">
+                  <input type="checkbox" [id]="filter.name + '-' + option"
+                    (change)="onFilterChange(filter.name, option, $any($event.target).checked)">
+                  <label [for]="filter.name + '-' + option">{{ option }}</label>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Listing -->
+      <div class="col-md-9">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <span>
+            Items {{ (currentPage - 1) * itemsPerPage + 1 }}–
+            {{ currentPage * itemsPerPage < filteredProducts.length ? currentPage * itemsPerPage :
+              filteredProducts.length }} of {{ filteredProducts.length }} </span>
+
+
+              <div>
+                Sort By<select class="form-select d-inline-block w-auto ms-2" [(ngModel)]="sortOption"
+                  (change)="applyFilters()">
+                  <option value="Top Picks">Top Picks</option>
+                  <option value="PriceLowHigh">Price: Low to High</option>
+                  <option value="PriceHighLow">Price: High to Low</option>
+                  <option value="RatingHighLow">Rating: High to Low</option>
+                </select>
+
+              </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 mb-4" *ngFor="let product of pagedProducts">
+            <div class="card h-100 shadow-sm position-relative">
+              <!-- Badge Award Winner -->
+              <span *ngIf="product.award" class="badge bg-purple position-absolute top-0 start-0 m-2">
+                Award Winner
+              </span>
+
+              <!-- Image du produit -->
+              <img [src]="product.image" class="card-img-top" alt="{{ product.name }}" />
+
+              <!-- Icône cœur pour favoris -->
+              <i class="bi bi-heart position-absolute top-0 end-0 m-2 fs-5 text-muted" style="cursor: pointer;"></i>
+
+              <!-- Détails du produit -->
+              <div class="card-body">
+                <!-- Étoiles -->
+                <div class="mb-1">
+                  <ng-container *ngFor="let star of [1,2,3,4,5]; let i = index">
+                    <i class="bi"
+                      [ngClass]="i < product.rating ? 'bi-star-fill text-warning' : 'bi-star text-muted'"></i>
+                  </ng-container>
+                </div>
+
+                <!-- Nom du produit -->
+                <h6 class="card-title mb-1">{{ product.name }}</h6>
+
+                <!-- Âge -->
+                <p class="text-muted small mb-1">{{ product.age }}
+                  <strong class="text-primary">\${{ product.price.toFixed(2) }}</strong>
+                </p>
+
+                <!-- Prix -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <nav class="d-flex justify-content-center mt-4">
+          <ul class="pagination">
+            <li class="page-item" [class.disabled]="currentPage === 1"
+              (click)="currentPage > 1 && changePage(currentPage - 1)">
+              <a class="page-link" href="#">Previous</a>
+            </li>
+            <li class="page-item" *ngFor="let page of totalPages" [class.active]="currentPage === page"
+              (click)="changePage(page)">
+              <a class="page-link">{{ page }}</a>
+            </li>
+
+            <li class="page-item" [class.disabled]="currentPage === totalPagesCount"
+              (click)="changePage(currentPage + 1)">
+              <a class="page-link">Next</a>
+            </li>
+
+          </ul>
+        </nav>
+
+      </div>
+    </div>
+  </div>
