@@ -1,20 +1,47 @@
-<div class="container mt-5">
-  <p>
-    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
-    literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney
-    College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and
-    going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes
-    from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero,
-    written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first
-    line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-  </p>
-  <button (click)="addproduit()" class="btn btn-primary">Ajouter un produit</button>
-  <h2>Liste des produits</h2>
-  <div *ngFor="let produit of produits">
-    <h3>{{ produit.titre }}</h3>
-    <p>{{ produit.description }}</p>
-    <img *ngFor="let img of produit.image" [src]="img" alt="image produit" width="100">
-    <p>Prix: {{ produit.prix }}€</p>
-    <p>Disponible: {{ produit.availability ? 'Oui' : 'Non' }}</p>
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Liste des produits</h2>
+    <button (click)="addproduit()" class="btn btn-primary">
+      <i class="bi bi-plus-circle me-1"></i> Ajouter un produit
+    </button>
+  </div>
+
+  <div class="alert alert-info" *ngIf="produits.length === 0">
+    Aucun produit disponible. Cliquez sur "Ajouter un produit" pour commencer.
+  </div>
+
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    <div class="col" *ngFor="let produit of produits">
+      <div class="card h-100">
+        <div class="card-header">
+          <span class="badge" [ngClass]="produit.availability ? 'bg-success' : 'bg-danger'">
+            {{ produit.availability ? 'Disponible' : 'Indisponible' }}
+          </span>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ produit.titre }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Réf: {{ produit.reference }} | Âge: {{ produit.age }}</h6>
+          <p class="card-text">{{ produit.description }}</p>
+          <div class="mb-3" *ngIf="produit.image?.length">
+            <div class="row">
+              <div class="col-4" *ngFor="let img of produit.image">
+                <img [src]="img" class="img-thumbnail" alt="image produit">
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="badge bg-primary">{{ produit.prix }}€</span>
+            <div>
+              <button class="btn btn-sm btn-outline-primary me-1">
+                <i class="bi bi-pencil"></i> Modifier
+              </button>
+              <button class="btn btn-sm btn-outline-danger">
+                <i class="bi bi-trash"></i> Supprimer
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

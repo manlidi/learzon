@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { ProduitService } from '../../../services/produit.service';
-import { AngularFireStorage } from '@angular/fire/compat/storage';
-import { Produit } from '../../../models/produit.model';
+import { ProduitService, Produit } from '../../../services/produit.service';
+import { Storage, ref, uploadBytes, getDownloadURL } from '@angular/fire/storage';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -24,7 +23,7 @@ export class CreateProductComponent {
     availability: false
   };
 
-  constructor(private produitService: ProduitService, private storage: AngularFireStorage) {}
+  constructor(private produitService: ProduitService, private storage: Storage) { }
 
   onSubmit() {
     this.produitService.addProduit(this.produit)
@@ -49,16 +48,21 @@ export class CreateProductComponent {
     };
   }
 
-  onImageChange(event: any) {
-    const file = event.target.files[0];
-    const filePath = `produits_images/${file.name}`;
-    const fileRef = this.storage.ref(filePath);
-    const task = this.storage.upload(filePath, file);
+  async onImageChange(event: any) {
+    const files: FileList = event.target.files;
+    if (!files.length) return;
 
-    task.snapshotChanges().toPromise().then(() => {
-      fileRef.getDownloadURL().subscribe((url) => {
+    for (const file of Array.from(files)) {
+      const filePath = `produits_images/${Date.now()}_${file.name}`;
+      const fileRef = ref(this.storage, filePath);
+
+      try {
+        await uploadBytes(fileRef, file);
+        const url = await getDownloadURL(fileRef);
         this.produit.image.push(url);
-      });
-    });
+      } catch (error) {
+        console.error("Erreur d'upload :", error);
+      }
+    }
   }
 }

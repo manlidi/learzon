@@ -31,21 +31,21 @@
 <div class="container text-center my-5">
   <h1 class="fw-bold" style="color: #004080; font-size:90px;">Shop by Age</h1>
   <div class="row justify-content-center mt-4">
-    <div class="col-6 col-md-auto">
+    <div class="col-6 col-md-2">
       <img src="assets/Artboard_208_3x.webp" alt="18 months" class="img-fluid image-fleur" style="max-width: 220px;">
     </div>
-    <div class="col-6 col-md-auto">
+    <div class="col-6 col-md-2">
       <img src="assets/Artboard_208_copy_3x.webp" alt="2 years" class="img-fluid image-fleur" style="max-width: 220px;">
     </div>
-    <div class="col-6 col-md-auto">
+    <div class="col-6 col-md-2">
       <img src="assets/Artboard_208_copy_2_3x.webp" alt="3-4 years" class="img-fluid image-fleur"
         style="max-width: 220px;">
     </div>
-    <div class="col-6 col-md-auto">
+    <div class="col-6 col-md-2">
       <img src="assets/Artboard_208_copy_3_3x.webp" alt="5-7 years" class="img-fluid image-fleur"
         style="max-width: 220px;">
     </div>
-    <div class="col-6 col-md-auto">
+    <div class="col-6 col-md-2">
       <img src="assets/Artboard_208_copy_4_3x.webp" alt="8+ years" class="img-fluid image-fleur"
         style="max-width: 220px;">
     </div>
@@ -81,12 +81,12 @@
     <div class="carousel-track">
       <div class="product-card" *ngFor="let product of visibleProducts">
         <div class="image-wrapper">
-          <img [src]="product.imageUrl" alt="{{ product.name }}" />
+          <img [src]="product.imageUrl" (click)="goToItem()" style="cursor: pointer;" />
           <span *ngIf="product.isNew" class="badge">New</span>
         </div>
         <div class="product-info">
           <h3>{{ product.name }}</h3>
-          <button (click)="goToItem()" class="add-to-cart">Add to Cart</button>
+          <button class="add-to-cart">Add to Cart</button>
           <div class="bottom-info">
             <span class="age">{{ product.ageRange }}</span>
             <span class="price">${{ product.price }}</span>
@@ -96,9 +96,9 @@
     </div>
   </div>
 
-  <button class="nav-button right" (click)="next()" [disabled]="currentIndex + itemsPerPage >= products.length">&gt;</button>
+  <button class="nav-button right" (click)="next()"
+    [disabled]="currentIndex + itemsPerPage >= products.length">&gt;</button>
 </div>
-
 
 
 <div class="container py-5">
@@ -106,49 +106,57 @@
 
     <div class="col-6 col-md-3">
       <div class="card p-2">
-        <img src="assets/Award_Winning_2_.webp" class="img-fluid h-100 w-100" style="object-fit: cover; border-radius: 20px;" alt="Award Winning">
+        <img src="assets/Award_Winning_2_.webp" class="img-fluid h-100 w-100"
+          style="object-fit: cover; border-radius: 20px;" alt="Award Winning">
       </div>
     </div>
 
     <div class="col-6 col-md-3">
       <div class="card p-2">
-        <img src="assets/Play_Food.webp" class="img-fluid h-100 w-100" style="object-fit: cover; border-radius: 20px;" alt="Play Food">
+        <img src="assets/Play_Food.webp" class="img-fluid h-100 w-100" style="object-fit: cover; border-radius: 20px;"
+          alt="Play Food">
       </div>
     </div>
 
     <div class="col-6 col-md-3">
       <div class="card p-2">
-        <img src="assets/Fine_Motor_2_.webp" class="img-fluid h-100 w-100" style="object-fit: cover; border-radius: 20px;" alt="Fine Motor">
+        <img src="assets/Fine_Motor_2_.webp" class="img-fluid h-100 w-100"
+          style="object-fit: cover; border-radius: 20px;" alt="Fine Motor">
       </div>
     </div>
 
     <div class="col-6 col-md-3">
       <div class="card p-2">
-        <img src="assets/STEM_2_.webp" class="img-fluid h-100 w-100" style="object-fit: cover; border-radius: 20px;" alt="STEM">
+        <img src="assets/STEM_2_.webp" class="img-fluid h-100 w-100" style="object-fit: cover; border-radius: 20px;"
+          alt="STEM">
       </div>
     </div>
 
     <div class="col-6 col-md-3">
       <div class="card p-2">
-        <img src="assets/SEL_2_.webp" class="img-fluid h-100 w-100" style="object-fit: cover; border-radius: 20px;" alt="Social Emotional Learning">
+        <img src="assets/SEL_2_.webp" class="img-fluid h-100 w-100" style="object-fit: cover; border-radius: 20px;"
+          alt="Social Emotional Learning">
       </div>
     </div>
 
     <div class="col-6 col-md-3">
       <div class="card p-2">
-        <img src="assets/Animals_1_.webp" class="img-fluid h-100 w-100" style="object-fit: cover; border-radius: 20px;" alt="Animals">
+        <img src="assets/Animals_1_.webp" class="img-fluid h-100 w-100" style="object-fit: cover; border-radius: 20px;"
+          alt="Animals">
       </div>
     </div>
 
     <div class="col-6 col-md-3">
       <div class="card p-2">
-        <img src="assets/Games_3_.webp" class="img-fluid h-100 w-100" style="object-fit: cover; border-radius: 20px;" alt="Games & Activity Sets">
+        <img src="assets/Games_3_.webp" class="img-fluid h-100 w-100" style="object-fit: cover; border-radius: 20px;"
+          alt="Games & Activity Sets">
       </div>
     </div>
 
     <div class="col-6 col-md-3">
       <div class="card p-2">
-        <img src="assets/Coding_1_.webp" class="img-fluid h-100 w-100" style="object-fit: cover; border-radius: 20px;" alt="Coding">
+        <img src="assets/Coding_1_.webp" class="img-fluid h-100 w-100" style="object-fit: cover; border-radius: 20px;"
+          alt="Coding">
       </div>
     </div>
 
@@ -202,7 +210,8 @@
 <div class="accordion d-md-none" id="footerAccordion">
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
-      <button class="accordion-button collapsed bg-primary text-light fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#aboutUs" aria-expanded="false" aria-controls="aboutUs">
+      <button class="accordion-button collapsed bg-primary text-light fw-bold" type="button" data-bs-toggle="collapse"
+        data-bs-target="#aboutUs" aria-expanded="false" aria-controls="aboutUs">
         About Us
       </button>
     </h2>
@@ -220,7 +229,8 @@
 
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingTwo">
-      <button class="accordion-button collapsed bg-primary text-light fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#shop" aria-expanded="false" aria-controls="shop">
+      <button class="accordion-button collapsed bg-primary text-light fw-bold" type="button" data-bs-toggle="collapse"
+        data-bs-target="#shop" aria-expanded="false" aria-controls="shop">
         Shop
       </button>
     </h2>
@@ -238,7 +248,8 @@
 
   <div class="accordion-item">
     <h2 class="accordion-header bg-primary" id="headingThree">
-      <button class="accordion-button collapsed bg-primary text-light fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#resources" aria-expanded="false" aria-controls="resources">
+      <button class="accordion-button collapsed bg-primary text-light fw-bold" type="button" data-bs-toggle="collapse"
+        data-bs-target="#resources" aria-expanded="false" aria-controls="resources">
         Resources
       </button>
     </h2>
@@ -257,7 +268,8 @@
 
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingFour">
-      <button class="accordion-button collapsed bg-primary text-light fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#help" aria-expanded="false" aria-controls="help">
+      <button class="accordion-button collapsed bg-primary text-light fw-bold" type="button" data-bs-toggle="collapse"
+        data-bs-target="#help" aria-expanded="false" aria-controls="help">
         Need Help?
       </button>
     </h2>
@@ -298,9 +310,9 @@
 
   <!-- Liens -->
   <div class="row text-center mx-4 text-md-start d-none d-md-flex">
-<div class="col-2">
+    <div class="col-2">
 
-</div>
+    </div>
     <div class="col-6 col-md-2 mb-4  footer-section">
       <h6>About Us</h6>
       <div class="footer-links">
@@ -338,7 +350,7 @@
       </div>
     </div>
 
-    <div class="col-6 col-md-2 mb-4 footer-section">
+    <div class="col-6 col-md-2 mb-4 footer-section">        
       <h6>Need Help?</h6>
       <div class="footer-links">
         <a href="#">Contact Us</a>
@@ -404,12 +416,7 @@
 <!-- Bouton "Back to Top" -->
 <div class="back-to-top">
   <a href="#top">
-    <img src="https://www.learningresources.com/on/demandware.static/-/Library-Sites-LearningResourcesSharedLibrary/default/dwbde96a8d/images/BackToTop.svg" alt="Back to Top">
-    <div>Back to<br>Top</div>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT07c9GWXy_feOLgHQZcp5OFRvoYFoCbmUkSw&s"
+      alt="Back to Top">
   </a>
 </div>
-
-
-
-
-

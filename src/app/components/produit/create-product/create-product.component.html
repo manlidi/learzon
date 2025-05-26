@@ -18,12 +18,16 @@
 
     <div class="mb-3">
       <label for="description" class="form-label">Description</label>
-      <textarea class="form-control" id="description" [(ngModel)]="produit.description" name="description" required></textarea>
+      <textarea class="form-control" id="description" [(ngModel)]="produit.description" name="description"
+        required></textarea>
     </div>
 
     <div class="mb-3">
       <label for="image" class="form-label">Image</label>
-      <input type="file" class="form-control" (change)="onImageChange($event)">
+      <input type="file" class="form-control" name="image" (change)="onImageChange($event)" multiple>
+      <div *ngFor="let img of produit.image" class="my-2">
+        <img [src]="img" alt="Image produit" style="max-height: 100px;">
+      </div>
     </div>
 
     <div class="mb-3">
@@ -32,7 +36,8 @@
     </div>
 
     <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="availability" [(ngModel)]="produit.availability" name="availability">
+      <input type="checkbox" class="form-check-input" id="availability" [(ngModel)]="produit.availability"
+        name="availability">
       <label class="form-check-label" for="availability">Disponible</label>
     </div>
 

@@ -1,22 +1,25 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import { Auth, onAuthStateChanged } from '@angular/fire/auth';
-import { from, map } from 'rxjs';
+import { authState } from '@angular/fire/auth';
+import { Auth } from '@angular/fire/auth';
+import { map, take } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class AuthGuard implements CanActivate {
-  constructor(private auth: Auth, private router: Router) {}
+  private auth = inject(Auth);
+  private router = inject(Router);
 
   canActivate() {
-    return from(new Promise<boolean>((resolve) => {
-      onAuthStateChanged(this.auth, (user) => {
+    return authState(this.auth).pipe(
+      take(1),
+      map(user => {
         if (user) {
-          resolve(true);
+          return true;
         } else {
           this.router.navigate(['/login']);
-          resolve(false);
+          return false;
         }
-      });
-    }));
+      })
+    );
   }
 }
